@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OAuth callback</title>
+</head>
+<body>
+<h1>Authorization result</h1>
+<p id="result">Waiting...</p>
+<script>
+var q = new URLSearchParams(window.location.search);
+var code = q.get('code') || '';
+var err = q.get('error') || '';
+var el = document.getElementById('result');
+if (err) { el.textContent = 'ERROR: ' + err; }
+else if (code) { el.textContent = 'CODE: ' + code; }
+else { el.textContent = 'No code in URL.'; }
+</script>
+</body>
+</html>
